@@ -1,0 +1,55 @@
+<div ng-if="windowOpen" ng-class="{'liveagent-expanded': expandedWindow, 'liveagent-widget': !expandedWindow && !minimized, 'liveagent-minimized': !expandedWindow && minimized}">
+    <span ng-switch="expandedWindow">
+        <div ng-switch-when="true" class="liveagent-titlebar">
+            Customer Success
+            <div ng-click="endChatSession();" class="liveagent-close"></div>
+            <div ng-click="restoreExpandedWindow();" ng-if="showRestoreIcon() && connected" class="liveagent-expanded-restore"></div>
+        </div>
+        <div ng-switch-when="false" class="liveagent-titlebar" ng-click="toggleMinimizedState()">
+            Customer Success
+            <div ng-click="endChatSession(); $event.stopPropagation();" class="liveagent-close"></div>
+            <span ng-switch="minimized">
+                <div ng-switch-when="true" ng-click="toggleMinimizedState(); $event.stopPropagation();" class="liveagent-restore"></div>
+                <span ng-switch-when="false">
+                    <div ng-click="toggleMinimizedState(); $event.stopPropagation();" class="liveagent-minimize"></div>
+                    <div ng-click="expandWindow(); $event.stopPropagation();" ng-if="connected" class="liveagent-expand"></div>
+                </span>
+            </span>
+        </div>
+    </span>
+    <div ng-if="!minimized" class="liveagent-view">
+        <span ng-switch="chatWindowSwitch">
+            <div ng-switch-when="chat">
+                <div class="liveagent-messages-panel" id="messages-container">
+                    <p class="liveagent-message" ng-class="{'liveagent-msg-link': message.rich}" ng-repeat="message in model.messages track by $index" te-repeat-finished>
+                        <span ng-class="{'liveagent-msg-agent': message.type == 'agent', 'liveagent-msg-me': message.type == 'fromme'}" ng-if="message.type != 'system'">{{message.from}}: </span>
+                        <span ng-if="message.rich" ng-bind-html="message.msg" style="white-space: pre-line;"></span>
+                        <span ng-class="{'liveagent-msg-status': message.type == 'system'}" ng-if="!message.rich" style="white-space: pre-line;">{{message.msg}}</span>
+                    </p>
+                </div>
+                <div class="liveagent-system-msg-panel">
+                    <p style="margin-left:5px"><span class="liveagent-msg-status">{{model.systemMessage}}</span></p>
+                </div>
+                <div class="liveagent-textarea-container">
+                    <textarea id="chat-textarea" ng-model="model.msginput" ng-class="dragOver ? 'liveagent-msg-input-dragover' : 'liveagent-msg-input'"
+                     placeholder="Type here and hit <enter> to chat" ng-keypress="keyPressed()" te-enter="newMessage()" te-focus="connected"></textarea>
+                </div>
+            </div>
+            <div ng-switch-when="feedback" id="liveagent-feedback-panel">
+                <p style="margin-bottom:15px;">The chat session has ended.</p>
+                <div><input type="checkbox" ng-model="model.closeCase"  /> Issues were solved during this chat. The case can be closed.</div>
+                <div style="margin-top:10px"> Any comments you would like to share?
+                <textarea id="feedback-msg" ng-model="model.feedbackMsg" class="liveagent-feedback-msg" autofocus></textarea>
+                </div>
+                <div><input type="submit" id="liveagent-feedback-btn" ng-click="postChatActions()" value="Send & Close" class="btn btn-primary" /></div>   
+            </div>
+            <div ng-switch-when="serverEnded" id="liveagent-timeout-panel" class="liveagent-disconnected">
+                <p>A problem occurred transfering the chat to a new agent. The chat session was saved.
+                 Please check your inbox soon for the email with the chat transcript and the case details for this session.</p>
+            </div>
+            <div ng-switch-when="clientEnded" id="liveagent-timeout-panel" class="liveagent-disconnected">
+                <p>Your chat session was disconnected due to idle time.  Click <a ng-click="restartChatSession()">here</a> to start a new chat session.</p>
+            </div>
+        </span>
+    </div>
+</div>

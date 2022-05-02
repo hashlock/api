@@ -1,0 +1,259 @@
+.exported-liveagent {
+  text-align: left;
+  font: 12px/1.3 Arial,Helvetica,sans-serif;
+}
+.exported-liveagent textarea {
+    border: 1px solid #cecece;
+    outline: none;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25 ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+.exported-liveagent textarea:focus {
+    border: 1px solid #95bdd4;
+    -webkit-box-shadow: 0 2px 3px rgba(161, 202, 226, 0.5) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 0 2px 3px rgba(161, 202, 226, 0.5) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 3px rgba(161, 202, 226, 0.5) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.exported-liveagent p.liveagent-message {
+  -webkit-margin-before: 5px;
+}
+
+.exported-liveagent .liveagent-system-msg-panel {
+  bottom: 60px;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    height: 18px;
+    padding: 3px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #cecece;
+    outline: none;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25 ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+.liveagent-widget {
+  width: 270px;
+  height: 300px;
+  position: fixed;
+  z-index: 6;
+  clear: both;
+  right: 80px;
+  bottom: 0px; }
+
+.liveagent-login {
+  line-height: 18px;
+  min-height: 20px;
+  max-height: 40px;
+  width: 213px;
+  resize: none;
+  border-radius: 2px;
+  padding: 5px;
+  margin-bottom: 10px; }
+
+.liveagent-login-submit {
+  background-color: #fb7c32;
+  border-radius: 3px;
+  border: 0;
+  padding: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin: 10px 0px;
+  width: 130px; }
+
+.liveagent-expanded {
+  width: 100%;
+  height: 100%; }
+
+.liveagent-minimized {
+  position: fixed;
+  width: 270px;
+  right: 80px;
+  bottom: 0px;
+  z-index: 6; }
+
+.liveagent-msg-agent {
+  color: #f65c11; }
+
+.liveagent-msg-me {
+  color: #2A83d6; }
+
+.liveagent-msg-status {
+  color: #999999;
+  font-style: italic; }
+
+.liveagent-close {
+  background-image: url(/images/liveagent/la-close-white.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  width: 15px;
+  float: right;
+  height: 15px; }
+
+.liveagent-close:hover {
+  background-image: url(/images/liveagent/la-close-gray.png); }
+
+.liveagent-disconnected {
+  background-image: url(/images/liveagent/la-logo-offline.png);
+  background-position: center 50px;
+  background-repeat: no-repeat;
+  height: 200px;
+  padding: 20px; }
+
+.liveagent-disconnected p {
+  margin-top: 115px; }
+
+.liveagent-expand {
+  background-image: url(/images/liveagent/la-expand-white.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  width: 15px;
+  float: right;
+  height: 15px; }
+
+.liveagent-expand:hover {
+  background-image: url(/images/liveagent/la-expand-gray.png); }
+
+.liveagent-minimize {
+  background-image: url(/images/liveagent/la-down-white.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  width: 15px;
+  float: right;
+  height: 15px; }
+
+.liveagent-minimize:hover {
+  background-image: url(/images/liveagent/la-down-gray.png); }
+
+.liveagent-restore {
+  background-image: url(/images/liveagent/la-up-white.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  width: 15px;
+  float: right;
+  height: 15px; }
+
+.liveagent-restore:hover {
+  background-image: url(/images/liveagent/la-up-gray.png); }
+
+.liveagent-expanded-restore {
+  background-image: url(/images/liveagent/la-expand-close-white.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  width: 15px;
+  float: right;
+  height: 15px; }
+
+.liveagent-expanded-restore:hover {
+  background-image: url(/images/liveagent/la-expand-close-gray.png); }
+
+p.liveagent-message {
+  margin-bottom: 5px;
+  padding-left: 1em;
+  text-indent: -1em;
+  line-height: 1.3em;
+}
+
+.liveagent-system-msg-panel {
+  position: absolute;
+  height: 16px;
+  bottom: 52px;
+}
+
+.liveagent-messages-panel {
+  position: absolute;
+  padding: 6px 10px 0 10px;
+  overflow: auto;
+  word-break: break-word;
+  top: 0px;
+  bottom: 68px;
+  right: 0px;
+  left: 0px; }
+
+.liveagent-msg-link {
+  word-break: break-all; }
+
+.liveagent-msg-input, .liveagent-msg-input-dragover {
+  line-height: 18px;
+  min-height: 36px;
+  max-height: 40px;
+  width: 100%;
+  resize: none;
+  border-radius: 2px;
+  padding: 3px;
+  margin-bottom: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.liveagent-msg-input, .liveagent-msg-input-dragover {
+  line-height: 18px;
+  min-height: 36px;
+  max-height: 40px;
+  width: 100%;
+  resize: none;
+  border-radius: 2px;
+  padding: 3px;
+  margin-bottom: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #ffffff; }
+
+.liveagent-msg-input-dragover {
+  background-color: #e6ffff; }
+
+.liveagent-feedback-msg {
+  line-height: 18px;
+  height: 100px;
+  width: 100%;
+  resize: none;
+  border-radius: 2px;
+  padding: 3px;
+  margin: 3px 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.liveagent-textarea-container {
+  border-top: 1px solid #ededed;
+  padding: 3px;
+  position: absolute;
+  bottom: 0px;
+  left: 3px;
+  right: 3px; }
+
+.liveagent-titlebar {
+  background-color: #5ba0d0;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  height: 23px;
+  padding: 8px 10px 0px 10px;
+  color: #ffffff; }
+
+.liveagent-view {
+  background-color: #ffffff;
+  border-left: 1px solid #ededed;
+  border-right: 1px solid #ededed;
+  position: absolute;
+  top: 31px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px; }
+
+#liveagent-feedback-panel {
+  padding: 10px;
+  line-height: 1.4; }
+
+#liveagent-feedback-btn {
+  font-size: 1em; }

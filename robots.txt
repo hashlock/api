@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /v5/js/
+Disallow: /v5/css/
+Disallow: /v6/js/
+Disallow: /v6/css/
+Disallow: /v7/js/
+Disallow: /v7/css/
