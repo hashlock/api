@@ -16,7 +16,7 @@ function ($window, $timeout, $q, sfdcLiveagentService, webStorageUtils, MAX_UPLO
             teExpanded: '<',
         },
         link: linkFn,
-        templateUrl: window.location.pathname.substr(0, 3) + '/ngtemplates/teChatWindow.html',
+        templateUrl: window.location.pathname.substr(0, 4) + '/ngtemplates/teChatWindow.html',
     };
 
     function linkFn(scope) {
