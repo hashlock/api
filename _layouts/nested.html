@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  {% include header.html %}
+</head>
+<body onload="load()">
+  {% if site.this_api_version_status == "preview" %}
+    <div id="preview-version-alert">
+      This is a preview of our upcoming API version {{site.this_api_version}},
+      subject to <a href="{{ site.baseurl }}{{ site.version_url_prefix_apidoc }}/#/changesummary">change</a> without notice.<br />
+      At this time, <a href="{{ site.baseurl }}{{ site.recommended_api_version_url_prefix_apidoc }}">{{ site.recommended_api_version_title }}</a> is the recommended API version to use.
+    </div>
+  {% endif %}
+  {{ content }}
+  {% if page.expand_on_init %}
+    <script type="text/javascript">
+      var expandOnInit = true;
+    </script>
+  {% else %}
+    <script type="text/javascript">
+      var expandOnInit = false;
+    </script>
+  {% endif %}
+  <script src="{{ site.baseurl }}{{ site.version_url_prefix_apidoc }}/js/te.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}{{ site.version_url_prefix_apidoc }}/js/search.min.js" type="text/javascript"></script>
+  <div id="footer">
+    <span class="copyright">
+      &copy; {{ site.time | date: '%Y' }} ThousandEyes. All rights reserved.
+    </span>
+    <div ng-app="app.csc.publicliveagent" style="position:absolute;left:50%;" class="exported-liveagent">
+        <te-chat-window-visitor-login></te-chat-window-visitor-login>
+        <te-chat-window te-public-chat="true"></te-chat-window>
+    </div>
+
+  </div>
+  {% include analytics.html %}
+</body>
+</html>
