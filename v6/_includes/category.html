@@ -1,0 +1,27 @@
+<h1>{{ page.current_category_label }}</h1>
+{% for post in site.posts_sorted_by_sortorder_asc %}
+	{% if post.category == page.current_category or post.parent_category == page.current_category %}
+		<article class='{% if post.type == "GET-POST" %}GET{% else %}{{ post.type }}{% endif %}'>
+			<a data-category='{{ post.sub-category }}' name='{{ post.url }}' href='#{{ post.url }}'>
+				<h2>
+					<span class="state-icon collapsed"></span>
+					{% if post.type %}
+					<code>
+						{% if post.is-beta == 1 %}<beta><strong>BETA</strong></beta>&nbsp;&nbsp;{% endif %}
+						{% if post.type == "GET-POST" %}
+						<b class="GET">GET</b> <b class="POST">POST</b>
+						{% else %}
+						<b>{{ post.type }}</b>
+						{% endif %}
+						{{ post.path | liquify }}
+					</code>
+					{% endif %}
+					{{ post.title }}
+				</h2>
+			</a>
+			<section class='body'>
+				{{ post.content | liquify | markdownify }}
+			</section>
+		</article>
+	{% endif %}
+{% endfor %}

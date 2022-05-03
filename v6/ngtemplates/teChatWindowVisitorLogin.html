@@ -1,0 +1,20 @@
+<div ng-if="!connected && chatAvailable">
+    <div ng-class="{'liveagent-widget': !minimized, 'liveagent-minimized' : minimized }">
+        <div ng-click="toggleMinimizedState()" class="liveagent-titlebar">
+            Chat with Support
+            <div ng-click="hideForm(); $event.stopPropagation();" class="liveagent-close"></div>
+            <div ng-click="toggleMinimizedState(); $event.stopPropagation();" ng-if="minimized" class="liveagent-restore"></div>
+            <div ng-click="toggleMinimizedState(); $event.stopPropagation();" ng-if="!minimized" class="liveagent-minimize"></div>
+        </div>
+        <div ng-if="!minimized">
+            <div ng-if="!connected" class="liveagent-view">
+                <div style="min-height: 160px; max-height:250px; padding: 6px 10px 0 10px; overflow: auto; word-break: break-all;" id="messages-container" class="class1">
+                    <p style="font-size: 1.1em; margin: 12px 0px">Questions? We'd love to chat.</p>    
+                    <input type="text" id="name-input" ng-model="model.nameinput" placeholder="Enter your name" class="liveagent-login" />
+                    <input type="text" id="email-input" ng-model="model.emailinput" placeholder="Enter your email" class="liveagent-login" />
+                    <input type="submit" id="start-chat" ng-click="setNameAndEmail()" value="Start chatting" class="liveagent-login-submit" />   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

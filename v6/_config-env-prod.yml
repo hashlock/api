@@ -1,0 +1,10 @@
+---
+baseurl: https://developer.thousandeyes.com
+
+flag_analytics: true
+ga_key: UA-29270826-6
+heap_key: 1734400811
+
+sass:
+  style: compressed
+  deploy_style: compressed

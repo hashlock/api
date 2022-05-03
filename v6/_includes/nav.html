@@ -1,0 +1,124 @@
+<div class="header-logo"></div>
+<h1>DEVELOPER REFERENCE</h1>
+<div id="search">
+  <input type="text" name="q" id="filter" placeholder="Search" autocomplete="off" />
+</div>
+
+
+<section id="search-results" style="display: none;">
+  <h3>Search Results</h3>
+  <div id="clear-search" class="clear"><span class="icon">&times;</span>Clear</div>
+  <div class="entries"></div>
+</section>
+
+{% raw %}
+<script id="search-results-template" type="text/mustache">
+  {{#entries}}
+    <article>
+      <h4>
+        <a href="{{url}}">{{title}}</a>
+      </h4>
+    </article>
+  {{/entries}}
+</script>
+{% endraw %}
+
+
+<ul id='links'>
+  {% for category in site.categories_and_posts_by_sortorder_asc %}
+    {% if category[0] == 'overview' %}
+      {% assign url_path = '' %}
+    {% else %}
+      {% assign url_path = category[0] %}
+    {% endif %}
+
+    {% assign current_nav = "" %}
+    {% if category[0] == page.current_category %}
+      {% assign current_nav = "current" %}
+    {% endif %}
+  <li class="{{ current_nav }}">
+    {% if page.current_category == "overview" %}
+      <a class="category-title" href="{{ url_path }}">
+    {% else %}
+      <a class="category-title" href="../{{ url_path }}">
+    {% endif %}
+      <h2>{{ category[1][0]["parent_category_label"] }}</h2>
+    </a>
+    {% assign hidden_nav = "hidden" %}
+    {% if category[0] == page.current_category %}
+      {% assign hidden_nav = "" %}
+    {% endif %}
+    <ul>
+    {% for posts in category %}
+      {% for post in posts %}
+        {% if post.title != null %}
+          {% if hidden_nav == "hidden" %}
+            <!--section is hidden -->
+            {% if category[0] == 'overview' %}
+            <!--section is the overview section -->
+              <li class='{{ post.type }} {{ hidden_nav }}'>
+                <a class="section-title" href='#{{ post.url }}'>{{ post.title }}</a>
+              </li>
+            {% else %}
+            <!--section is anything but the overview section -->
+              <li class='{{ post.type }} {{ hidden_nav }}'>
+                <a class="section-title" href='../#{{ post.url }}'>{{ post.title }}</a>
+              </li>
+            {% endif %}
+          {% else %}
+            <!--section is not hidden aka elements inside the expanded section, should have if for overview vs otherwise-->
+            {% if category[0] == 'overview' %}
+            <!--section is the overview section -->
+              <li class='{{ post.type }} {{ hidden_nav }}'>
+                <a class="section-title" href='#{{ post.url }}'>{{ post.title }}</a>
+              </li>
+            {% else %}
+              <li class='{{ post.type }} {{ hidden_nav }}'>
+                <a class="section-title" href='#{{ post.url }}'>{{ post.title }}</a>
+              </li>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>
+<hr class="nav-separator" />
+<ul class="version-links">
+  <li align="center">
+    {% assign api_version_lowest = true %}
+    {% for api_version in site.api_versioning_metadata %}
+      {% if api_version_lowest == false %}
+        &nbsp;|&nbsp;
+      {% endif %}
+      {% assign api_version_lowest = false %}
+
+      {% if api_version.number == site.this_api_version %}
+        Showing {{ api_version.title }}
+      {% else %}
+        <a href="{{ site.baseurl }}/{{ api_version.tag }}" alt="Check out {{ api_version.tag }} of the API">{{api_version.title}}</a>
+      {% endif %}
+    {% endfor %}
+  </li>
+</ul>
+<hr class="nav-separator" />
+<ul class="resource-links">
+  <li>
+    <span class="docs"></span>
+    <a href="https://docs.thousandeyes.com" target="_blank" alt="ThousandEyes Product Documentation">Product Documentation</a>
+  </li>
+  <li>
+    <span class="locked"></span>
+    <a href="https://app.thousandeyes.com/sfdc/community/home/?communityTabId=Cases&communityObjectId=New" target="_blank" alt="ThousandEyes Customer Success Center">Customer Success Center</a>
+  </li>
+  <li>
+    <span class="github"></span>
+    <a href="https://github.com/thousandeyes" target="_blank" alt="Public GitHub Repo">Public GitHub Repository</a>
+  </li>
+</ul>
+<hr class="nav-separator" />
+<div class="signup">
+  Try ThousandEyes Now! <a href="https://www.thousandeyes.com/signup" target="_blank" alt="ThousandEyes Signup" class="signup-button">Sign Up</a>
+</div>

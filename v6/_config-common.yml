@@ -1,0 +1,48 @@
+---
+api_versioning_metadata:
+  - number: 5
+    tag: "v5"
+    title: "APIv5"
+    status: "current"
+
+  - number: 6
+    tag: "v6"
+    title: "APIv6"
+    status: "current"
+
+  - number: 7
+    tag: "v7"
+    title: "APIv7 (preview)"
+    status: "preview"
+
+recommended_api_version: 6
+recommended_api_version_tag: "v6"
+recommended_api_version_title: "APIv6"
+recommended_api_version_url_prefix_apidoc: "/v6"
+
+exclude: ['README.md', 'Rakefile']
+permalink: ':title'
+highlighter: pygments
+safe: false
+title: 'ThousandEyes Developer Reference'
+flag_analytics: false
+
+sass:
+  style: nested
+  deploy_style: nested
+  compile_in_place: true
+
+jekyll_sort:
+  - src: posts
+    by: sortorder
+    direction: up
+    dest: posts_sorted_by_sortorder_asc
+  - src: categories
+    direction: up
+    sort_posts: up
+    sort_posts_by: sortorder
+    category_sortorder: true
+    dest: categories_and_posts_by_sortorder_asc
+
+lunr_search:
+  excludes: [sitemap.xml, /agents/index.html, /alerts/index.html, /index.html, /instant/index.html, /overview/index.html, /test_data/index.html, /tests/index.html, /endpoint_test_data/index.html, /endpoint_tests/index.html, /snapshots/index.html]
