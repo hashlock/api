@@ -2,6 +2,6 @@
 this_api_version: 6
 this_api_version_tag: "v6"
 this_api_version_status: "current"
-version_url_prefix_apidoc: '/v6'
-version_url_prefix_request: '/v6'
-version_url_prefix_response: '/v6'
+version_url_prefix_apidoc: '/api/v6'
+version_url_prefix_request: '/api/v6'
+version_url_prefix_response: '/api/v6'

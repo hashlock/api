@@ -18,7 +18,7 @@ api_versioning_metadata:
 recommended_api_version: 6
 recommended_api_version_tag: "v6"
 recommended_api_version_title: "APIv6"
-recommended_api_version_url_prefix_apidoc: "/v6"
+recommended_api_version_url_prefix_apidoc: "/api/v6"
 
 exclude: ['README.md', 'Rakefile']
 permalink: ':title'
